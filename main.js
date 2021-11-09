@@ -19,7 +19,7 @@ function random(min, max) {
 
 class Boat {
   constructor(){
-    loader.load("/boat/scene.gltf", (gltf) => {
+    loader.load("assets/boat/scene.gltf", (gltf) => {
       scene.add( gltf.scene )
       gltf.scene.scale.set(3, 3, 3)
       gltf.scene.position.set(5,13,50)
@@ -74,7 +74,7 @@ async function loadModel(url){
 let boatModel = null
 async function createTrash(){
   if(!boatModel){
-    boatModel = await loadModel("/trash/scene.gltf")
+    boatModel = await loadModel("assets/trash/scene.gltf")
   }
   return new Trash(boatModel.clone())
 }
@@ -108,7 +108,7 @@ async function init() {
     {
       textureWidth: 512,
       textureHeight: 512,
-      waterNormals: new THREE.TextureLoader().load( '/waternormals.jpg', function ( texture ) {
+      waterNormals: new THREE.TextureLoader().load( 'assets/waternormals.jpg', function ( texture ) {
 
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
