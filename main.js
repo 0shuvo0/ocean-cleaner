@@ -1,6 +1,5 @@
 import './style.css'
 
-
 import * as THREE from 'three';
 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -19,7 +18,7 @@ function random(min, max) {
 
 class Boat {
   constructor(){
-    loader.load("assets/boat/scene.gltf", (gltf) => {
+    loader.load("https://github.com/0shuvo0/ocean-cleaner/raw/main/assets/boat/scene.gltf", (gltf) => {
       scene.add( gltf.scene )
       gltf.scene.scale.set(3, 3, 3)
       gltf.scene.position.set(5,13,50)
@@ -74,7 +73,7 @@ async function loadModel(url){
 let boatModel = null
 async function createTrash(){
   if(!boatModel){
-    boatModel = await loadModel("assets/trash/scene.gltf")
+    boatModel = await loadModel("https://github.com/0shuvo0/ocean-cleaner/raw/main/assets/trash/scene.gltf")
   }
   return new Trash(boatModel.clone())
 }
@@ -108,7 +107,7 @@ async function init() {
     {
       textureWidth: 512,
       textureHeight: 512,
-      waterNormals: new THREE.TextureLoader().load( 'assets/waternormals.jpg', function ( texture ) {
+      waterNormals: new THREE.TextureLoader().load( "https://github.com/0shuvo0/ocean-cleaner/blob/main/assets/waternormals.jpg?raw=true", function ( texture ) {
 
         texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
 
